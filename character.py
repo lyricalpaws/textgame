@@ -25,32 +25,51 @@ class Character():
     # Fight with this character
     def fight(self, combat_item):
         print(self.name + " doesn't want to fight with you")
-        return True
+        return False
 
 
 class Enemy(Character):
+    enemies_defeated = 0
 
-    # Create the enemy
     def __init__(self, char_name, char_description):
 
         super().__init__(char_name, char_description)
         self.weakness = None
 
-    # Fight with this character
+        # Fight with an enemy
+
     def fight(self, combat_item):
-        # If the enemy is weak to this item, return True
         if combat_item == self.weakness:
             print("You fend " + self.name + " off with the " + combat_item)
+            Enemy.enemies_defeated += 1
             return True
         else:
-            # If it doesn't, kill the player
             print(self.name + " crushes you, puny adventurer!")
             return False
 
-    # Sets the weakness of the enemy
     def set_weakness(self, item_weakness):
         self.weakness = item_weakness
 
-    # Get the item the enemy is weak to
     def get_weakness(self):
         return self.weakness
+
+    # Getters and setters for the enemies_defeated variable
+    def get_defeated(self):
+        return Enemy.enemies_defeated
+
+    def set_defeated(self, number_defeated):
+        Enemy.enemies_defeated = number_defeated
+
+    def steal(self):
+        print("You steal from " + self.name)
+        # How will you decide what this character has to steal?
+
+
+class Friend(Character):
+
+    def __init__(self, char_name, char_description):
+        super().__init__(char_name, char_description)
+        self.feeling = None
+
+    def hug(self):
+        print(self.name + " hugs you back!")
