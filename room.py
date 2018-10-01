@@ -5,6 +5,15 @@ class Room():
         self.name = room_name
         self.description = None
         self.linked_rooms = {}
+        self.character = None
+
+    # Set character
+    def set_character(self, new_character):
+        self.character = new_character
+
+    # Get the character
+    def get_character(self):
+        return self.character
 
     # Set room name
     def set_name(self, room_name):
