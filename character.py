@@ -62,7 +62,6 @@ class Enemy(Character):
 
     def steal(self):
         print("You steal from " + self.name)
-        # How will you decide what this character has to steal?
 
 
 class Friend(Character):

@@ -71,7 +71,6 @@ while dead == False:
             if fight_with in backpack:
 
                 if inhabitant.fight(fight_with) == True:
-                    # What happens if you win?
                     print("Hooray, you won the fight!")
                     current_room.character = None
                     if inhabitant.get_defeated() == 2:
